@@ -2,6 +2,8 @@
 
 Generate customizable maker chips with various patterns and optional embedded QR codes. Perfect for multi-color 3D printing.
 
+![Makerchip Maker Preview](images/preview.png)
+
 ## Features
 
 - **20 Pattern Styles**: Choose from a variety of decorative chip patterns

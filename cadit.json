@@ -21,7 +21,8 @@
   "images": [
     {
       "path": "images/preview.png",
-      "alt": "Makerchip Maker Preview"
+      "alt": "Makerchip Maker Preview",
+      "isPrimary": true
     }
   ]
 }

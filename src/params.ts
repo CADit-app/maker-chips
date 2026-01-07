@@ -3,6 +3,24 @@
  */
 
 import { svgDataUrls } from './embeddedSvgs';
+import qrCodeMaker from '@cadit-app/qr-code';
+import imageExtrudeMaker from '@cadit-app/image-extrude';
+import type { EmbeddedParamValue } from '@cadit-app/script-params';
+
+// Get the params from the imported makers
+const qrCodeParams = qrCodeMaker.params;
+const imageExtrudeParams = imageExtrudeMaker.params;
+
+// Override defaults for embedded use (smaller sizes to fit in chip)
+const qrCodeParamsWithOverrides = {
+  ...qrCodeParams,
+  size: { ...qrCodeParams.size, default: 18 },
+};
+
+const imageExtrudeParamsWithOverrides = {
+  ...imageExtrudeParams,
+  maxWidth: { ...imageExtrudeParams.maxWidth, default: 18 },
+};
 
 export const makerChipParamsSchema = {
   radius: {
@@ -64,8 +82,20 @@ export const makerChipParamsSchema = {
     ],
     default: 'makerChipV1',
   },
-  // TODO: Add embedded qrCodeSettings and imageExtrudeSettings
-  // These need to reference external GitHub scripts
+  qrCodeSettings: {
+    type: 'embedded',
+    label: 'QR Code (Optional)',
+    params: qrCodeParamsWithOverrides,
+    enabled: false,
+    showSettings: false,
+  },
+  imageExtrudeSettings: {
+    type: 'embedded',
+    label: 'Image Extrude (Optional)',
+    params: imageExtrudeParamsWithOverrides,
+    enabled: false,
+    showSettings: false,
+  },
 } as const;
 
 export type MakerChipParams = {
@@ -75,4 +105,6 @@ export type MakerChipParams = {
   centerCircleRadius: number;
   assemblyType: 'flat' | 'printable';
   markings: string;
+  qrCodeSettings: EmbeddedParamValue<typeof qrCodeParamsWithOverrides>;
+  imageExtrudeSettings: EmbeddedParamValue<typeof imageExtrudeParamsWithOverrides>;
 };
