@@ -1,0 +1,27 @@
+{
+  "name": "Makerchip Maker",
+  "description": "Generate customizable maker chips with various patterns and optional embedded QR codes. Features 20 decorative patterns and multi-color 3MF export for 3D printing.",
+  "entryPoint": "src/main.ts",
+  "tags": ["maker-chip", "patterns", "3d-printing", "multi-color", "customizable"],
+  "category": "Tools",
+  "license": {
+    "type": "CC BY-NC-SA 4.0",
+    "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+  },
+  "author": {
+    "name": "CADit"
+  },
+  "attribution": {
+    "isDerivative": true,
+    "originalAuthor": "K2_Kevin",
+    "originalAuthorUrl": "https://makerworld.com/en/@K2_Kevin",
+    "sourceUrl": "https://makerworld.com/en/models/415825-makerchip-maker-chip",
+    "description": "Original maker chip designs by K2_Kevin were manually converted to SVG and used as a starting point."
+  },
+  "images": [
+    {
+      "path": "images/preview.png",
+      "alt": "Makerchip Maker Preview"
+    }
+  ]
+}
