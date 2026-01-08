@@ -1,6 +1,6 @@
 {
   "name": "@cadit-app/maker-chips",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Customizable maker chip generator with patterns and embedded QR codes",
   "type": "module",
   "main": "src/main.ts",
@@ -15,7 +15,7 @@
     "@cadit-app/script-params": "^0.4.1",
     "@cadit-app/svg-sampler": "^0.1.0",
     "@cadit-app/qr-code": "^0.5.1",
-    "@cadit-app/image-extrude": "^0.1.2",
+    "@cadit-app/image-extrude": "^0.3.2",
     "@jscadui/3mf-export": "^0.5.0",
     "fflate": "^0.8.2"
   },
