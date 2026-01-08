@@ -1,6 +1,6 @@
 {
   "name": "@cadit-app/maker-chips",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Customizable maker chip generator with patterns and embedded QR codes",
   "type": "module",
   "main": "src/main.ts",
