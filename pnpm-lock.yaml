@@ -15,8 +15,8 @@ importers:
         specifier: ^0.5.1
         version: 0.5.1(@cadit-app/manifold-3d@3.3.2)
       '@cadit-app/script-params':
-        specifier: ^0.4.1
-        version: 0.4.1
+        specifier: ^0.5.2
+        version: 0.5.2
       '@cadit-app/svg-sampler':
         specifier: ^0.1.0
         version: 0.1.0
@@ -62,6 +62,9 @@ packages:
 
   '@cadit-app/script-params@0.4.1':
     resolution: {integrity: sha512-2bzHWjRkgjzZWmljYcZ8NijwMZfeOjfWQK8eQTqz+uJUABb0SlMsJju59GP2BRorFET3AW+wcVtYnDkqkP6D8Q==}
+
+  '@cadit-app/script-params@0.5.2':
+    resolution: {integrity: sha512-8YuBDEB5dYPDuGUS9E/PloHDhhyxcsG9nV62mQaL/S7KvbGoQAxVNePmOmJCOl8PP80U/Z/n9SBE1Cl8xuRNsQ==}
 
   '@cadit-app/svg-sampler@0.1.0':
     resolution: {integrity: sha512-j8pdVShsW3Dph80OK/D+UypOyQZ4Z1xoqD12w1F9sJWyQDbLdvO7aMVrLWHzy7TUZSp7UwgnPUSfnpiXMjXPYA==}
@@ -984,6 +987,8 @@ snapshots:
       qrcode: 1.5.4
 
   '@cadit-app/script-params@0.4.1': {}
+
+  '@cadit-app/script-params@0.5.2': {}
 
   '@cadit-app/svg-sampler@0.1.0':
     dependencies:

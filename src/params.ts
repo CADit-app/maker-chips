@@ -5,6 +5,7 @@
 import { svgDataUrls } from './embeddedSvgs';
 import qrCodeMaker from '@cadit-app/qr-code';
 import imageExtrudeMaker from '@cadit-app/image-extrude';
+import { embedParams } from '@cadit-app/script-params';
 import type { EmbeddedParamValue } from '@cadit-app/script-params';
 
 // Get the params from the imported makers
@@ -82,20 +83,20 @@ export const makerChipParamsSchema = {
     ],
     default: 'makerChipV1',
   },
-  qrCodeSettings: {
+  qrCodeSettings: embedParams('@cadit-app/qr-code', {
     type: 'embedded',
     label: 'QR Code (Optional)',
     params: qrCodeParamsWithOverrides,
     enabled: false,
     showSettings: false,
-  },
-  imageExtrudeSettings: {
+  }),
+  imageExtrudeSettings: embedParams('@cadit-app/image-extrude', {
     type: 'embedded',
     label: 'Image Extrude (Optional)',
     params: imageExtrudeParamsWithOverrides,
     enabled: false,
     showSettings: false,
-  },
+  }),
 } as const;
 
 export type MakerChipParams = {
