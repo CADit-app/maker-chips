@@ -12,6 +12,9 @@ import type { EmbeddedParamValue } from '@cadit-app/script-params';
 const qrCodeParams = qrCodeMaker.params;
 const imageExtrudeParams = imageExtrudeMaker.params;
 
+// Default skull emoji image from this repo (served via jsDelivr CDN)
+const defaultSkullImageUrl = 'https://cdn.jsdelivr.net/gh/CADit-app/maker-chips@master/images/1F480.svg';
+
 // Override defaults for embedded use (smaller sizes to fit in chip)
 const qrCodeParamsWithOverrides = {
   ...qrCodeParams,
@@ -21,6 +24,15 @@ const qrCodeParamsWithOverrides = {
 const imageExtrudeParamsWithOverrides = {
   ...imageExtrudeParams,
   maxWidth: { ...imageExtrudeParams.maxWidth, default: 18 },
+  imageFile: {
+    ...imageExtrudeParams.imageFile,
+    default: {
+      imageUrl: defaultSkullImageUrl,
+      fileType: 'image/svg+xml',
+      fileName: '1F480.svg',
+    },
+  },
+  mode: { ...imageExtrudeParams.mode, default: 'sample' },
 };
 
 export const makerChipParamsSchema = {
@@ -87,15 +99,15 @@ export const makerChipParamsSchema = {
     type: 'embedded',
     label: 'QR Code (Optional)',
     params: qrCodeParamsWithOverrides,
-    enabled: false,
+    enabled: true,
     showSettings: false,
   }),
   imageExtrudeSettings: embedParams('@cadit-app/image-extrude', {
     type: 'embedded',
     label: 'Image Extrude (Optional)',
     params: imageExtrudeParamsWithOverrides,
-    enabled: false,
-    showSettings: false,
+    enabled: true,
+    showSettings: true,
   }),
 } as const;
 
