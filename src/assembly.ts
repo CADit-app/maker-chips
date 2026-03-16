@@ -6,7 +6,7 @@ import type { Manifold } from '@cadit-app/manifold-3d';
 import { roundedDisk, generateMarkingShape, generateCenterDisk } from './disk';
 import type { MakerChipParams } from './params';
 import qrCodeMaker from '@cadit-app/qr-code';
-import imageExtrudeMaker from '@cadit-app/image-extrude';
+import { makeCrossSection } from '@cadit-app/image-extrude';
 
 export type AssemblyType = 'flat' | 'printable';
 
@@ -54,11 +54,19 @@ export async function assembleMakerchipShapes(
   }
 
   // Generate image extrude if enabled
+  // image-extrude's default export returns SceneOutput (2D shapes), not a Manifold.
+  // Use makeCrossSection + extrude to get a proper Manifold with .mirror()/.translate() etc.
   let imageExtrude: Manifold | undefined;
   if (params.imageExtrudeSettings?.enabled) {
     try {
-      // imageExtrudeMaker is a callable ScriptModule - call it directly with params
-      imageExtrude = await imageExtrudeMaker(params.imageExtrudeSettings.params) as Manifold;
+      const ieParams = params.imageExtrudeSettings.params as any;
+      const crossSection = await makeCrossSection({
+        imageFile: ieParams.imageFile,
+        mode: ieParams.mode,
+        maxWidth: ieParams.maxWidth,
+        despeckleSize: ieParams.despeckleSize,
+      });
+      imageExtrude = crossSection.extrude(ieParams.height);
     } catch (error) {
       console.error('Error generating image extrude:', error);
     }
